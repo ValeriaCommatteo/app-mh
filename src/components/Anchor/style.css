@@ -1,0 +1,9 @@
+Nav {
+    margin: 0;
+    font-size: 20px;
+    color: indigo;
+    /* background-color: #fff; */
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+  }
