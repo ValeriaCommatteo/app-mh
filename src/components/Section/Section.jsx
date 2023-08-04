@@ -8,12 +8,12 @@ function Section({title,txt}) {
   return (
     <>
       <section>
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '550px' }}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{txt}</Card.Text>
-        <Button variant="primary">View More</Button>
+        <Button variant="outline-light" style={{backgroundColor: 'indigo'}}>View More</Button>
       </Card.Body>
     </Card>
       </section>
