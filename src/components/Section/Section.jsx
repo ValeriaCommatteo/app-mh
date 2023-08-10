@@ -1,8 +1,8 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import './style.css'
 import logo from '../../assets/fotito.jpg'
+import ActionButton from '../Button/Button'
 
 function Section({title,txt}) {
   return (
@@ -13,7 +13,7 @@ function Section({title,txt}) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{txt}</Card.Text>
-        <Button variant="outline-light" style={{backgroundColor: 'indigo'}}>View More</Button>
+        <ActionButton />
       </Card.Body>
     </Card>
       </section>

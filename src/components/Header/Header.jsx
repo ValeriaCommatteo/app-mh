@@ -31,7 +31,6 @@ function Header() {
           </Col>
         </Row>
       </Container>
-      <button onClick={() => handlerTitle()}>Cambiar</button>
     </header>
   )
 }
