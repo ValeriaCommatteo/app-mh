@@ -5,8 +5,17 @@ function Footer() {
   
   return (
     <footer className="fixed-bottom">
-        <h5>© 2023 Copyright:</h5>
-        <h4>Valeria S. Commatteo</h4>
+        
+        <h5>Valeria S. Commatteo</h5>
+        <nav className="footer-nav">
+        <ul className="footer-nav-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Acerca de nosotros</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+      <h6>© 2023 Copyright</h6>
 </footer>
 
   )

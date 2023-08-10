@@ -8,7 +8,7 @@ function Section({title,txt}) {
   return (
     <>
       <section>
-      <Card style={{ width: '550px' }}>
+      <Card style={{ width: '450px' }}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>

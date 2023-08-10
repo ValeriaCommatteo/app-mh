@@ -1,7 +1,7 @@
 .carousel-container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -15,8 +15,8 @@
 }
 
 .carousel .slide img {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 .four-images-container {

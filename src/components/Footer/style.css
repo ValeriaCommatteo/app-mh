@@ -1,4 +1,32 @@
 footer {
     background-color: rgb(221, 230, 237);
+    color: white;
+    padding: 5px;
     text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.footer-nav-list li {
+    margin: 0 10px;
+}
+
+.footer-nav-list li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav-list li a:hover {
+    color: #ffc107;
 }
