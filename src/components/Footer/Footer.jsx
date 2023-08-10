@@ -9,10 +9,9 @@ function Footer() {
         <h5>Valeria S. Commatteo</h5>
         <nav className="footer-nav">
         <ul className="footer-nav-list">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Acerca de nosotros</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
       <h6>© 2023 Copyright</h6>
