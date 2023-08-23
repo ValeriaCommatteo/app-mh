@@ -44,7 +44,7 @@ const Carrousel = (props) => {
         {group.map(item => (
           <div key={item.imagen} className="image-item">
             <img src={item.imagen} alt={item.nombre} />
-            <h2>{item.nombre}</h2>
+            <h5>{item.nombre}</h5>
           </div>
         ))}
       </div>
