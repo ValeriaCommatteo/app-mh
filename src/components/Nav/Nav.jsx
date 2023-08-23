@@ -1,5 +1,6 @@
 import React from 'react'
 import Anchor from '../Anchor'
+import { Link as Anchor } from 'react-router-dom' 
 
 export default function Navbar() {
     let data = [

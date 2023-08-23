@@ -3,6 +3,11 @@ header {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .titulo {
     font-size: 25px;
+}
+
+.home-link {
+    padding-left: 550px;
 }
