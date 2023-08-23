@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCities } from '../../services/api';
+import { getCities } from '../../data.json';
 
 const CitiesList = () => {
   const [cities, setCities] = useState([]);

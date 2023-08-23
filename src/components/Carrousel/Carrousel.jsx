@@ -45,7 +45,6 @@ const Carrousel = (props) => {
           <div key={item.imagen} className="image-item">
             <img src={item.imagen} alt={item.nombre} />
             <h2>{item.nombre}</h2>
-            <p>{item.dato}</p>
           </div>
         ))}
       </div>
