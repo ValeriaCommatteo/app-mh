@@ -1,0 +1,62 @@
+[
+    {
+        "imagen": "Agua.jpg",
+        "nombre": "Imagen 1",
+        "dato": "Dato 1"
+    },
+    {
+        "imagen": "Arg.jpg",
+        "nombre": "Imagen 2",
+        "dato": "Dato 2"
+    },
+    {
+        "imagen": "BsAs.jpg",
+        "nombre": "Imagen 3",
+        "dato": "Dato 3"
+    },
+    {
+        "imagen": "Cataratas.jpg",
+        "nombre": "Imagen 4",
+        "dato": "Dato 4"
+    },
+    {
+        "imagen": "España.jpg",
+        "nombre": "Imagen 5",
+        "dato": "Dato 5"
+    },
+    {
+        "imagen": "Ruinas.jpg",
+        "nombre": "Imagen 6",
+        "dato": "Dato 6"
+    },
+    {
+        "imagen": "Ny.jpg",
+        "nombre": "Imagen 7",
+        "dato": "Dato 7"
+    },
+    {
+        "imagen": "Grecia.jpg",
+        "nombre": "Imagen 8",
+        "dato": "Dato 8"
+    },
+    {
+        "imagen": "Muelle.jpg",
+        "nombre": "Imagen 9",
+        "dato": "Dato 9"
+    },
+    {
+        "imagen": "torrePisa.jpg",
+        "nombre": "Imagen 10",
+        "dato": "Dato 10"
+    },
+    {
+        "imagen": "India.jpg",
+        "nombre": "Imagen 11",
+        "dato": "Dato 11"
+    },
+    {
+        "imagen": "London.jpg",
+        "nombre": "Imagen 12",
+        "dato": "Dato 12"
+    }
+]

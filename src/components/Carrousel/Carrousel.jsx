@@ -1,52 +1,80 @@
-import React, { useState } from "react";
-import { Carousel } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar los estilos de Bootstrap
-import Slider from "../Slider/slider"; // Asegúrate de importar el componente Slider o lo que necesites
+import React, { useState } from 'react';
+import { Carousel, CarouselItem, CarouselIndicators } from 'reactstrap';
+import data from '../../data.json';
+import './style.css';
+import { CarouselControl } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
-const items = [
 
-  [
-    { id: 1, src: '/images/Agua.jpg' },
-    { id: 2, src: '/images/India.jpg' },
-    { id: 3, src: '/images/Arg.jpg' },
-    { id: 4, src: '/images/torrePisa.jpg' }
-  ],
-  [
-    { id: 5, src: 'Ny.jpg' },
-    { id: 6, src: 'Cataratas.jpg' },
-    { id: 7, src: 'España.jpg' },
-    { id: 8, src: 'Grecia.jpg' }
-  ],
-  [
-    { id: 9, src: 'BsAs.jpg' },
-    { id: 10, src: 'London.jpg' },
-    { id: 11, src: 'Ruinas.jpg' },
-    { id: 12, src: 'Muelle.jpg' }
-  ]
-];
+const itemsPerGroup = 4;
+const groupedItems = [];
+for (let i = 0; i < data.length; i += itemsPerGroup) {
+  groupedItems.push(data.slice(i, i + itemsPerGroup));
+}
 
-const Carrousel = () => {
+const Carrousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
 
-  const handleSelect = (selectedIndex, e) => {
-    setActiveIndex(selectedIndex);
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === groupedItems.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
   };
 
-  const slides = items.map((array, index) => (
-    <Carousel.Item key={index}>
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? groupedItems.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+
+  const goToIndex = (newIndex) => {
+    setActiveIndex(newIndex);
+  }
+
+  const slides = groupedItems.map((group, groupIndex) => (
+    <CarouselItem
+      key={groupIndex}>
       <div className="slide-exterior-container">
-        <Slider array={array} />
+      <div className="carrousel-h2">
+        <h2> Most Populars!</h2>
       </div>
-    </Carousel.Item>
+        {group.map(item => (
+          <div key={item.imagen} className="image-item">
+            <img src={item.imagen} alt={item.nombre} />
+            <h2>{item.nombre}</h2>
+            <p>{item.dato}</p>
+          </div>
+        ))}
+      </div>
+    </CarouselItem>
   ));
 
+  // Dentro del componente Carrousel
   return (
-    <section>
-      <div className="carrousel-h2">
-        <h2>Popular MYTINERARIES!</h2>
-      </div>
-      <Carousel activeIndex={activeIndex} onSelect={handleSelect}>
+    <section className="carousel-section">
+      <Carousel className="carrousel" activeIndex={activeIndex}>
+        <CarouselIndicators items={groupedItems} activeIndex={activeIndex} onClickHandler={goToIndex} />
         {slides}
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+          className="carousel-control-prev"
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+        </CarouselControl>
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+          className="carousel-control-next"
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+        </CarouselControl>
+
       </Carousel>
     </section>
   );

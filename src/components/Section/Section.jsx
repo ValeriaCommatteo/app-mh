@@ -7,8 +7,8 @@ import ActionButton from '../Button/Button'
 function Section({title,txt}) {
   return (
     <>
-      <section className="border border-white">
-      <Card style={{ width: '450px' }}>
+      <section className="card-event">
+      <Card style={{ width: '400px' }}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>

@@ -1,17 +1,22 @@
-import React from 'react'
-import Layout from './layouts/layout'
-import Contacto from './pages/Contacto'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './layouts/Layout';
+import Home from './pages/Home';
+import Cities from './pages/Cities';
 
 function App() {
-
   return (
-    <>
-    <Layout>
-       <Contacto />
-    </Layout>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="cities" element={<Cities />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
+
+

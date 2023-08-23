@@ -5,8 +5,6 @@ function Footer() {
   
   return (
     <footer className="fixed-bottom">
-        
-        <h5>Valeria S. Commatteo</h5>
         <nav className="footer-nav">
         <ul className="footer-nav-list">
           <li><a href="#">Home</a></li>

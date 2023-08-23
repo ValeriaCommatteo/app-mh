@@ -1,22 +1,29 @@
-const Slider = ({array})=>{
+import React from 'react';
+import data from '../../data.json'; // Reemplaza con la ruta correcta
 
-    return(<>{array.map(item => {
-            if(item.src){
-                return(
-                    <div className="slide-interior-container" key={item.id} >
-                    <div className="inner-slide">
-                        <div className="slide-text">
-                    <h2>{item.altText}</h2>
-                    <p>{item.caption}</p>
-                        </div>
-                    </div>
-                    </div>
-                )
-            }else{
-                return null
-                }
-            })}
-        </>)
-}
+const Slider = () => {
+    const groupSize = 4;
 
-export default Slider
+    const groupedData = [];
+    for (let i = 0; i < data.length; i += groupSize) {
+      groupedData.push(data.slice(i, i + groupSize));
+    }
+  return (
+    <div>
+    {groupedData.map((group, groupIndex) => (
+      <div key={groupIndex} className="group-container">
+        {group.map(item => (
+          <div key={item.imagen} className="image-item">
+            <img src={item.imagen} alt={item.nombre} />
+            <h2>{item.nombre}</h2>
+            <p>{item.dato}</p>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+  );
+};
+
+export default Slider;
+
