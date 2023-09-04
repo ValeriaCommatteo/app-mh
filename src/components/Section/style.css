@@ -1,11 +1,18 @@
-section {
-    margin: 5px;   
+.card-event {
+    margin-top: 150px;
+    margin-right: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-} 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
-.card {
-    text-align: center;
-    border: 0;
+.title {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.card-content {
+    display: flex;
+    background-color: #ffffff;
 }

@@ -1,9 +1,11 @@
 footer {
-    background-color: rgb(221, 230, 237);
-    color: white;
+    background-color: #ffffff;
+    color: #2A528A;
     padding: 5px;
     text-align: center;
-}
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ }
 
 .footer-nav {
     display: flex;
@@ -22,11 +24,11 @@ footer {
 }
 
 .footer-nav-list li a {
-    color: white;
+    color: rgb(3, 3, 3);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .footer-nav-list li a:hover {
-    color: #ffc107;
+    color: #210062;
 }

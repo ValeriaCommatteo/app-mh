@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import './style.css';
 
 function Footer() {
   
@@ -8,7 +8,7 @@ function Footer() {
         <nav className="footer-nav">
         <ul className="footer-nav-list">
           <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="#">Cities</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Section from '../Section/Section'
-import './style.css'
 
 function Main() {
     let data = [

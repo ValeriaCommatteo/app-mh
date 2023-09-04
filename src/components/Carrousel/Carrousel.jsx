@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel, CarouselItem, CarouselIndicators } from 'reactstrap';
+import { Carousel, CarouselItem } from 'reactstrap';
 import data from '../../data.json';
 import './style.css';
 import { CarouselControl } from 'reactstrap';
@@ -15,7 +15,7 @@ for (let i = 0; i < data.length; i += itemsPerGroup) {
 
 const Carrousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const [animating] = useState(false);
 
   const next = () => {
     if (animating) return;
@@ -29,7 +29,6 @@ const Carrousel = (props) => {
     setActiveIndex(nextIndex);
   };
 
-
   const goToIndex = (newIndex) => {
     setActiveIndex(newIndex);
   }
@@ -38,13 +37,12 @@ const Carrousel = (props) => {
     <CarouselItem
       key={groupIndex}>
       <div className="slide-exterior-container">
-      <div className="carrousel-h2">
-        <h2> Most Populars!</h2>
+      <div className="carousel-title">
       </div>
         {group.map(item => (
           <div key={item.imagen} className="image-item">
             <img src={item.imagen} alt={item.nombre} />
-            <h5>{item.nombre}</h5>
+            <h5>{item.country}</h5>
           </div>
         ))}
       </div>
@@ -54,26 +52,14 @@ const Carrousel = (props) => {
   // Dentro del componente Carrousel
   return (
     <section className="carousel-section">
-      <Carousel className="carrousel" activeIndex={activeIndex}>
-        <CarouselIndicators items={groupedItems} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
-          className="carousel-control-prev"
-        >
+      <h2 >Most Populars!</h2>
+      <Carousel className="carrousel" activeIndex={activeIndex}>{slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} className="carousel-control-prev">
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </CarouselControl>
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
-          className="carousel-control-next"
-        >
+        <CarouselControl direction="next" directionText="Next" onClickHandler={next} className="carousel-control-next">
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </CarouselControl>
-
       </Carousel>
     </section>
   );
