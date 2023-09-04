@@ -1,19 +1,17 @@
 import React from 'react';
 import CardBoostrap from 'react-bootstrap/Card';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Card = ({ data }) => {
-  const navigate = useNavigate()
-
+const Card = ({ imagen, city, country, id }) => {
   return (
-    <CardBoostrap style={{ width: '18rem' }} onClick={() => navigate(`/cities/${data._id}`)}>
-      <CardBoostrap.Img variant="top" src={data.urlimage} />
-      <CardBoostrap.Body>
-        <CardBoostrap.Title>{data.place}</CardBoostrap.Title>
-        <CardBoostrap.Text>{data.country}</CardBoostrap.Text>
-      </CardBoostrap.Body>
-    </CardBoostrap>
-  );
-};
+    <Card style={{ width: '18rem' }} onClick={() => navigate(`/cities/${id}`)}>
+      <Card.Img variant="top" src={imagen} />
+      <Card.Body>
+        <Card.Title>{city}</Card.Title>
+        <Card.Text>{country}</Card.Text>
+      </Card.Body>
+    </Card>
+  )
+}
 
 export default Card;

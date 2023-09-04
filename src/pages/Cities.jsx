@@ -1,14 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import Card from '../components/Card/index';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import citiesActions from '../redux/actions/citiesActions';
+import Search  from '../components/Search/index';
+import './Cities/citiesStyle.css'
 
 function Cities() {
 
-  const inputSearch = useRef(null)
-
-  let citiesInStore = useSelector(store => store.citiesR.cities)
+  let citiesR = useSelector(store => store.citiesR.cities)
   //console.log(citiesInStore);
 
   const dispatch = useDispatch()
@@ -21,56 +21,39 @@ function Cities() {
 
   }, [])
 
-  const handleInput = () => {
-    const search = inputSearch.current.value;
-    let query = `?`;
-    if (search) {
-      query += "name=" + search;
+  const handleSubmit = (value) => {
+    if(value) {
+      getAllCities(value)
+      .then(res => 
+        dispatch(getCitiesAction.get_cities(res))
+        //setCities(res)
+      )
+      .catch(err => console.log(err))
+    } else {
+      runGetAllCities()
+      //setCities(allCities)
     }
-    axios.get("http://localhost:4000/api/cities" + query)
-      .then((queryResponse) => {
-        console.log("queryResponse", queryResponse);
-
-
-        dispatch(citiesActions.get_cities(queryResponse.data))
-      })
-
   }
+
   return (
     <>
-      <div className=" container mx-auto mt-10 flex  justify-end ">
-
-        <div className="flex items-center">
-          <div className="flex border border-fuchsia-200 rounded">
-            <input
-              onInput={handleInput}
-              ref={inputSearch}
-              type="text"
-              className="block w-full px-4 py-2 text-fuchsia-700 bg-white border rounded-md focus:border-fuchsia-400 focus:ring-fuchsia-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Search..."
-            />
-            {/* <button  className="px-4 text-white bg-fuchsia-600 border-l rounded ">
-                    Search
-                </button> */}
-          </div>
-        </div>
-
+      <div>
+      <div className='containerCitiesPageMargin'>
       </div>
-      <div className="flex mx-auto ">
-        <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2  shrink-0 gap-3">
-          {console.log(citiesInStore)}
-          {
-            citiesInStore.length > 0 ? (
-              citiesInStore.map((item, index) => (
 
-                <Card key={index} city={item.name} country={item.country} urlimage={item.urlimage} cityId={item._id} />
+      <Search onSubmitProp={handleSubmit} />
 
-              ))
-            ) :
-              (<h2> No results found, please try again</h2>)
+      <div className='cardCitiesMargin'>
+      { citiesR.length > 0 ? (
+            citiesR.map((item)=> <><div className='title-pageCity'>
+            <h3>Collection</h3>
+          </div> <Card key={item._id} ciudad={item.nombre} pais={item.pais} imagen={item.foto} cid={item._id}/></>) 
+          ) : (<h2 className='empty'>At the moment there are no results</h2>)
           }
-        </div>
       </div>
+    </div>
+
+     
     </>
   )
 
