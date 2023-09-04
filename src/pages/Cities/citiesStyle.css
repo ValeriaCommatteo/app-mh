@@ -1,0 +1,20 @@
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  } */
+  
+  .center-content {
+    text-align: center; /* Opcional: centra el contenido horizontalmente */
+  }
+  
+  /* Agrega márgenes a los elementos según sea necesario */
+  .containerCitiesPageMargin {
+    margin: 50px; /* Puedes ajustar el valor de margen según tus necesidades */
+  }
+  
+  .cardCitiesMargin {
+    margin: 20px; /* Puedes ajustar el valor de margen según tus necesidades */
+  }
+  
