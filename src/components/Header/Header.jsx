@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './style.css'
 import { Link as Anchor } from 'react-router-dom';
-import Cities from '../../pages/Cities/index';
+import Cities from '../../pages/Cities';
 import Home from '../../pages/Home'
 
 function Header() {
@@ -18,27 +18,25 @@ function Header() {
     title = "Titulo cambiado"
   }
   return (
-
-    <header className="fixed-top">
-  <Container>
-    <Row className="align-items-center">
-      <Col className='titulo'>
-        MyItenerary
-      </Col>
-      <Col xs="auto">
-        <ul className="list-unstyled d-flex mb-0">
-          <li className="me-3"><Anchor to="/" className="home-link">Home</Anchor></li>
-          <li><Anchor to="/cities">Cities</Anchor></li>
-        </ul>
-      </Col>
-      <Col xs={{ order: 2 }}>
-        <Button variant="outline-light" style={{ backgroundColor: 'indigo'}} className="login">Login</Button>
-      </Col>
-    </Row>
-  </Container>
-</header>
-
-  )
+    <header className="header" role="banner">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col titulo">
+            MyItinerary
+          </div>
+          <div className="col-auto ms-auto">
+            <ul className="list-unstyled d-flex mb-0">
+              <li className="me-3"><a href="/" className="home-link">Home</a></li>
+              <li><a href="/cities">Cities</a></li>
+            </ul>
+          </div>
+          <div className="col-auto">
+            <button className="btn btn-outline-light login" style={{ backgroundColor: '#210062' }}>Login</button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
 }
 
-export default Header
+export default Header;

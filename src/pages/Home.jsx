@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from '../components/Main/Main'
+import Main from '../components/Main/index'
 import Carrousel from '../components/Carrousel/Carrousel'
 
 export default function Home({data}) {

@@ -1,3 +1,12 @@
+.carousel-section {
+  margin: 50px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .image-item {
   display: inline-block;
   margin: 0 10px;
@@ -5,7 +14,7 @@
 }
 
 .image-item img {
-  margin-top: 50px;
+  margin-top: 5px;
   height: 200px;
   width: 250px;
 }
@@ -14,23 +23,30 @@
   position: relative;
 }
 
-.carrousel-h2 {
+.carousel-container {
+  position: relative;
+}
+
+.carousel-title {
   position: absolute;
-  top: 0;
-  left: 400px;
-  color: indigo;
+  top: 10px; /* Ajusta la posición vertical del título */
+  left: 50%; /* Ajusta la posición horizontal del título */
+  transform: translateX(-50%);
+  color: black;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  border: none;
-  outline: none;
   cursor: pointer;
   z-index: 2;
+}
+
+.carousel-item {
+  transition-duration: 2s; /* Ajusta el valor para controlar la velocidad */
 }
 
 .carousel-control-prev {
