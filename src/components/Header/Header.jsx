@@ -19,8 +19,8 @@ function Header() {
   }
   return (
     <header className="header" role="banner">
-      <div className="container">
-        <div className="row align-items-center">
+      <div>
+        <div className="ajuste row align-items-center">
           <div className="col titulo">
             MyItinerary
           </div>
