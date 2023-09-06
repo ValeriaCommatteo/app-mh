@@ -35,10 +35,12 @@ function Cities() {
        <Row>
          <Search onSubmitProp={handleSubmit}/>
       </Row>
-      <Row style={{ marginTop: '25px', width:'1350px', height:'900px'}}>
+      <Row style={{ width:'1350px'}}>
+      <font size='6' color="indigo">Cities</font>
+            <h4>Collection of the most beatifull pleaces and experience</h4>
         {cities.length > 0 ? (
           cities.map((data) => (
-            <Col style={{ marginTop:'10px', padding: '5px'}} key={data.id} md={3}>
+            <Col style={{ padding: '5px'}} key={data.id} md={3}>
               <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data.id} />
             </Col>
           ))
@@ -47,9 +49,7 @@ function Cities() {
         )}
       </Row>
       </Container>
-
   )
-
 }
 
 export default Cities

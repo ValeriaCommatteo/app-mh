@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, createBrowserRouter, RouterProv
 import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Cities from './pages/Cities';
+import './App.css'
 
 const router = createBrowserRouter([
   {
