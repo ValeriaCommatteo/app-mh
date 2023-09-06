@@ -11,12 +11,16 @@
   display: inline-block;
   margin: 0 10px;
   text-align: center;
+  width: 350px;
+  height: 230px;
 }
 
 .image-item img {
   margin-top: 5px;
-  height: 200px;
-  width: 250px;
+  height: 230px;
+  width: 350px;
+  border-radius: 10%;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .slide-exterior-container {
@@ -27,34 +31,30 @@
   position: relative;
 }
 
-.carousel-title {
-  position: absolute;
-  top: 10px; /* Ajusta la posición vertical del título */
-  left: 50%; /* Ajusta la posición horizontal del título */
-  transform: translateX(-50%);
-  color: black;
-  font-weight: bold;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 .carousel-control-prev,
 .carousel-control-next {
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
   z-index: 2;
 }
 
 .carousel-item {
-  transition-duration: 2s; /* Ajusta el valor para controlar la velocidad */
+  transition-duration: 2.5s;
 }
 
 .carousel-control-prev {
-  left: -60px;
-  /* Icono de navegación izquierdo */
+  left: -28px;
 }
 
 .carousel-control-next {
-  right: -60px;
-  /* Icono de navegación derecho */
+  right: -28px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  height: 35px;
+  width: 35px;
+  background-color: rgba(0, 0, 0, 0.411);
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 0px;
 }

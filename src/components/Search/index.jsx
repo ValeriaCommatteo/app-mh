@@ -1,6 +1,6 @@
 import React from "react"
 import { useRef } from "react"
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
 export default function Search({ onSubmitProp }) {
     const inputRef = useRef(null)
@@ -16,8 +16,7 @@ const handleSubmit = (event) => {
 }
 
 return  (
-    <div className="d-flex justify-content-end">
-    <Form className="searchB">
+    <Form className="d-flex justify-content-center align-items-center" style={{ marginTop: '20px'}}>
         <Row >
           <Col xs="auto">
             <Form.Control type="text" placeholder="Search"/>
@@ -27,7 +26,6 @@ return  (
           </Col>
         </Row>
       </Form>
-      </div>
   );
 }
 
