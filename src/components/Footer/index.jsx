@@ -4,7 +4,7 @@ import './style.css';
 function Footer() {
   
   return (
-    <footer className="fixed-bottom">
+    <footer>
         <nav className="footer-nav">
         <ul className="footer-nav-list">
           <li><a href="#">Home</a></li>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel, CarouselItem } from 'reactstrap';
-import data from '../../data.json';
+import data from '../../data/data.json';
 import './style.css';
 import { CarouselControl } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -39,7 +39,7 @@ const Carrousel = ({ item }) => {
       <div  className="slide-exterior-container">
         {group.map(item => (
           <div key={item.imagen} className="image-item">
-            <img src={item.imagen} alt={item.nombre} className='imagenes'/>
+            <img src={item.imagen} alt={item.nombre} className='imagenes' style={{ objectFit: 'cover' }}/>
             <h5>{item.country}</h5>
           </div>
         ))}

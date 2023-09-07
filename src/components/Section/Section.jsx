@@ -6,7 +6,7 @@ import { MDBCard, MDBCardTitle, MDBCardText, MDBCardOverlay, MDBCardImage } from
 
 function Section({ title, txt }) {
   return (
-    <MDBCard background='dark' className='text-black'>
+    <MDBCard background='dark' className='text-black'  style={{ marginTop:'120px'}}>
       <MDBCardImage overlay src={logo} alt='...' className='img-foto-portada' />
       <MDBCardOverlay>
         <MDBCardTitle>{title}</MDBCardTitle>

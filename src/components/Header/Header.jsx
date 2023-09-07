@@ -16,8 +16,8 @@ function Header() {
     title = "Titulo cambiado"
   }
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container style={{ marginTop: '5px' }}>
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary fixed-top">
+      <Container style={{ marginTop: '0px' }}>
         <Navbar.Brand>MyItinerary</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
