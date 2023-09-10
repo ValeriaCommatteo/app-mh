@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { citiesR } from './reducers/citiesReducers.js'
-// import { itineraryR } from './reducers/itineraryReducers.js'
-// import { userR } from './reducers/userReducer.js'
+import { itinerariesR } from '../redux/reducers/itinerariesReducer.js'
+import { userR } from './reducers/userReducers.js'
 
 const store = configureStore( {
     reducer : {
         citiesR : citiesR,
-        // itineraryR : itineraryR,
-        // userR: userR
+        itinerariesR : itinerariesR,
+        user: userR
     }
 } )
 

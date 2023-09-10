@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
-import CardComponent from '../components/Card/index';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import citiesActions from '../redux/actions/citiesActions';
 import Search from '../components/Search/index';
-import './Style/citiesStyle.css'
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import CardComponent from '../components/Card/index';
+import './Style/citiesStyle.css'
 
 function Cities() {
   const cities = useSelector((store) => store.citiesR.cities);
@@ -41,7 +40,7 @@ function Cities() {
         {cities.length > 0 ? (
           cities.map((data) => (
             <Col style={{ padding: '5px'}} key={data.id} md={3}>
-              <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data.id} />
+              <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data._id} />
             </Col>
           ))
         ) : (

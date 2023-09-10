@@ -1,8 +1,13 @@
-import React, { Children } from 'react';
-import { BrowserRouter as Router, Route, Routes, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authenticate } from './redux/actions/userActions';
 import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Cities from './pages/Cities';
+import CityDetail from './pages/CityDetail';
+import Register from './pages/Register';
+import SignIn from "./pages/SignIn";
 import './App.css'
 
 const router = createBrowserRouter([
@@ -18,23 +23,41 @@ const router = createBrowserRouter([
         path: "/cities",
         element: <Cities />
       },
-      // {
-      //   path: "/city/:id",
-      //   element: <CitiesDetail />
-      // },
+      {
+        path: "/register",
+        element: <Register />
+      },
+      {
+        path: "/signin",
+        element: <SignIn />
+      },
+      {
+        path: "/details/:id",
+        element: <CityDetail />
+      },
       // {
       //   path: "/itinerary",
       //   element: <Itineraries />
       // },
       // {
-      //   path: "/itinerary/:id",
-      //   element: <Itinerary />
+      //   path: "/itineraryByCity/:id",
+      //   element: <CityDetail />
       // },
     ],
   },
 ]);
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect (() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(authenticate());
+    }
+  }, [])
+  
   return <RouterProvider router={router} />
 }
 
