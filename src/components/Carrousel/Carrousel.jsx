@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel, CarouselItem } from 'reactstrap';
-import data from '../../data.json';
+import data from '../../data/data.json';
 import './style.css';
 import { CarouselControl } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ for (let i = 0; i < data.length; i += itemsPerGroup) {
   groupedItems.push(data.slice(i, i + itemsPerGroup));
 }
 
-const Carrousel = (props) => {
+const Carrousel = ({ item }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating] = useState(false);
 
@@ -30,23 +30,21 @@ const Carrousel = (props) => {
   };
 
   const goToIndex = (newIndex) => {
+    if (animating) return;
     setActiveIndex(newIndex);
   }
 
   const slides = groupedItems.map((group, groupIndex) => (
-    <CarouselItem
-      key={groupIndex}>
-      <div className="slide-exterior-container">
-      <div className="carousel-title">
-      </div>
+    <CarouselItem key={groupIndex}>
+      <div  className="slide-exterior-container">
         {group.map(item => (
           <div key={item.imagen} className="image-item">
-            <img src={item.imagen} alt={item.nombre} />
+            <img src={item.imagen} alt={item.nombre} className='imagenes' style={{ objectFit: 'cover' }}/>
             <h5>{item.country}</h5>
           </div>
         ))}
       </div>
-    </CarouselItem>
+    </CarouselItem> 
   ));
 
   // Dentro del componente Carrousel
@@ -55,10 +53,8 @@ const Carrousel = (props) => {
       <h2 >Most Populars!</h2>
       <Carousel className="carrousel" activeIndex={activeIndex}>{slides}
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} className="carousel-control-prev">
-          <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </CarouselControl>
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} className="carousel-control-next">
-          <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </CarouselControl>
       </Carousel>
     </section>

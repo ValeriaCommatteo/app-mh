@@ -1,26 +1,20 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
 import './style.css'
 import logo from '../../assets/portada.jpg'
 import ActionButton from '../Button/Button'
+import { MDBCard, MDBCardTitle, MDBCardText, MDBCardOverlay, MDBCardImage } from 'mdb-react-ui-kit';
 
 function Section({ title, txt }) {
-    return (
-        <>
-            <section className="card-event">
-                <Card style={{ width: '800px' }}>
-                    <div className="card-content">
-                        <Card.Img variant="top" src={logo} />
-                        <Card.Body>
-                            <Card.Title className='title'>{title}</Card.Title>
-                            <Card.Text>{txt}</Card.Text>
-                            <ActionButton />
-                        </Card.Body>
-                    </div>
-                </Card>
-            </section>
-        </>
-    )
+  return (
+    <MDBCard background='dark' className='text-black'  style={{ marginTop:'120px'}}>
+      <MDBCardImage overlay src={logo} alt='...' className='img-foto-portada' />
+      <MDBCardOverlay>
+        <MDBCardTitle>{title}</MDBCardTitle>
+        <MDBCardText>{txt}</MDBCardText>
+        <ActionButton />
+      </MDBCardOverlay>
+    </MDBCard>
+  );
 }
 
 export default Section

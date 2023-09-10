@@ -1,62 +1,54 @@
-import { useEffect } from 'react';
-import Card from '../components/Card/index';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import citiesActions from '../redux/actions/citiesActions';
-import Search  from '../components/Search/index';
-import './Cities/citiesStyle.css'
+import Search from '../components/Search/index';
+import { Container, Row, Col } from 'react-bootstrap';
+import CardComponent from '../components/Card/index';
+import './Style/citiesStyle.css'
 
 function Cities() {
-
-  let citiesR = useSelector(store => store.citiesR.cities)
-  //console.log(citiesInStore);
-
-  const dispatch = useDispatch()
+  const cities = useSelector((store) => store.citiesR.cities);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios.get("http://localhost:4000/api/cities")
       .then((response) => {
-        dispatch(citiesActions.get_cities(response.data))
-      })
-
-  }, [])
+        dispatch(citiesActions.get_cities(response.data));
+      });
+  }, []);
 
   const handleSubmit = (value) => {
-    if(value) {
+    if (value) {
       getAllCities(value)
-      .then(res => 
-        dispatch(getCitiesAction.get_cities(res))
-        //setCities(res)
-      )
-      .catch(err => console.log(err))
+        .then((res) => dispatch(getCitiesAction.get_cities(res)))
+        .catch((err) => console.log(err));
     } else {
-      runGetAllCities()
-      //setCities(allCities)
+      runGetAllCities();
     }
-  }
+  };
 
   return (
-    <>
-      <div>
-      <div className='containerCitiesPageMargin'>
-      </div>
 
-      <Search onSubmitProp={handleSubmit} />
-
-      <div className='cardCitiesMargin'>
-      { citiesR.length > 0 ? (
-            citiesR.map((item)=> <><div className='title-pageCity'>
-            <h3>Collection</h3>
-          </div> <Card key={item._id} ciudad={item.nombre} pais={item.pais} imagen={item.foto} cid={item._id}/></>) 
-          ) : (<h2 className='empty'>At the moment there are no results</h2>)
-          }
-      </div>
-    </div>
-
-     
-    </>
+    <Container fluid className="d-flex flex-column justify-content-center align-items-center">
+       <Row>
+         <Search onSubmitProp={handleSubmit}/>
+      </Row>
+      <Row style={{ width:'1350px'}}>
+      <font size='6' color="indigo">Cities</font>
+            <h4>Collection of the most beatifull pleaces and experience</h4>
+        {cities.length > 0 ? (
+          cities.map((data) => (
+            <Col style={{ padding: '5px'}} key={data.id} md={3}>
+              <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data._id} />
+            </Col>
+          ))
+        ) : (
+          <h2 className="text-center">At the moment there are no results</h2>
+        )}
+      </Row>
+      </Container>
   )
-
 }
 
 export default Cities

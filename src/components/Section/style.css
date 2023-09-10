@@ -1,18 +1,19 @@
-.card-event {
-    margin-top: 150px;
-    margin-right: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.text-black{
+    height: 652px;
+    width: 1052px;
+    margin-top: 60px;
+    margin-left: 420px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.title {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 14px;
 }
 
 .card-content {
     display: flex;
     background-color: #ffffff;
+}
+
+.img-foto-portada {
+    height: 650px;
+    width: 1050px;
 }
