@@ -2,14 +2,19 @@ import { createReducer } from "@reduxjs/toolkit";
 import getCitiesAction from '../actions/citiesActions'
 
 const initialState = {
-    cities : [],
-
+    cities : [{
+      name:"",
+      country: "",
+      description: "",
+      urlImage: "",
+    }],
+    filteredCities: [],
 }
 export const citiesR = createReducer( initialState, ( builder ) => 
     builder
 
         .addCase( getCitiesAction.get_cities, (stateActual, action) => {
-            const newState = {...stateActual, cities : action.payload.cities}
+            const newState = {...stateActual, cities : action.payload.cities, filteredCities: action.payload.cities}
             return newState
         } )
 
@@ -18,12 +23,12 @@ export const citiesR = createReducer( initialState, ( builder ) =>
               return newState
         })
 
-        // .addCase( filterCities, ( stateActual, action ) => {
-        //     const filteredSearch = stateActual.allCities.filter( cities => cities.name.toLowerCase().startwith( action.payload.inputValue )  )
-        //     let newFilteredCities = filteredSearch
-        //     return {...stateActual, filteredCities : newFilteredCities }
-        // } ) 
-
+        .addCase(getCitiesAction.filterCities, (stateActual, action) => {
+            const filteredSearch = stateActual.cities.filter((city) =>
+              city.name.toLowerCase().startsWith(action.payload.inputValue.toLowerCase())
+            );
+            return { ...stateActual, filteredCities: filteredSearch };
+          })
         // .addCase( cargarCitiesAsync.fulfilled, (stateActual, action ) => {
         //     return { ...stateActual, allCities : action.payload, filteredCities : action.payload}
         // } )

@@ -1,23 +1,21 @@
-import { createAction } from "@reduxjs/toolkit"
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit"
+import axios from 'axios'
 
-const get_itineraries = createAction('get_cities', (arr) => { 
-    return {
-      payload: {
-        cities: arr
-      }
-    }
-  }
-)
+const load_itineraries = createAsyncThunk( 'load_itineraries', async () => {
+  const peticion = await axios( 'http://localhost:4000/api/itineraries' )
+  return peticion.data
+} )
 
-const get_itinerary = createAction('get_city', (data) => { 
-  return {
-    payload: {
-      cities: data
-    }
-  }
-}
-)
+const get_itinerary = createAsyncThunk('get_itinerary', async( id ) => { 
+      const peticion = await axios.get( 'http://localhost:4000/api/itineraries/itineraryByCity/' + id  )
+      return peticion.data.itinerariesFound
+})
 
-const getItinerariesAction = { get_itineraries, get_itinerary}
+const reset_itineraries = createAction( 'reset_itineraries', () => {
+   
+  return { payload: { } }
+})
+
+const getItinerariesAction = { load_itineraries, get_itinerary, reset_itineraries}
 
 export default getItinerariesAction
