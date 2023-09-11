@@ -1,23 +1,31 @@
-import { createAction } from "@reduxjs/toolkit"
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit"
+import axios from 'axios'
 
-const get_cities = createAction('get_cities', (arr) => { 
-    return {
-      payload: {
-        cities: arr
-      }
+const get_cities = createAction('get_cities', (arr) => {
+  return {
+    payload: {
+      cities: arr
     }
   }
-)
+})
 
-const get_city = createAction('get_city', (data) => { 
+const get_city = createAction('get_city', (data) => {
   return {
     payload: {
       cities: data
     }
   }
-}
-)
+})
 
-const getCitiesAction = { get_cities, get_city}
+const getCity = createAsyncThunk( 'get_city_async', async( id ) => {
+  try {
+      const peticion = await axios.get( 'http://localhost:4000/api/cities/' + id  )
+      return peticion.data.response
+  } catch (error) {
+      
+  }
+} )
+
+const getCitiesAction = { get_cities, get_city, getCity }
 
 export default getCitiesAction
