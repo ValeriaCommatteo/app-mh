@@ -1,60 +1,56 @@
-import  React, { useEffect} from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
-import citiesActions from '../redux/actions/citiesActions';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import getCitiesAction from '../redux/actions/citiesActions';
 import getItinerariesAction from '../redux/actions/itineraryActions.js';
 import CardDetail from '../components/Card/CardDetail.jsx';
 import CardItinerary from '../components/Card/cardItinerary.jsx';
 import axios from 'axios';
 
+const API_URL = 'http://localhost:4000/api/cities/city';
+
 function CityDetail() {
 
-    const { id } = useParams();
-  
-    const cities = useSelector((store) => store.citiesR.cities);
-    const citydispatch = useDispatch();
-  
-    console.log(cities)
+  let { id } = useParams();
+  const dispatch = useDispatch();
+  const cities = useSelector((store) => store.citiesR.cities);
+  const itineraries = useSelector((store) => store.itinerariesR.itineraries);
 
-    useEffect(() => {
-      axios.get("http://localhost:4000/api/cities/city/" + id)
-        .then((response) => {
-          citydispatch(citiesActions.get_cities(response.data));
-        });
-    }, []);
+  useEffect(() => {
+    // Obtener datos de la ciudad)
 
-    console.log(cities)
-    
-    const itineraries = useSelector(store => store.itinerariesR.itineraries); /*REVISAR APARTIR DE ACA*/
-    const dispatch = useDispatch();
-    
-    useEffect(() => {    
-      dispatch(getItinerariesAction.get_itineraries(id))
-    }, [])
-  
-    return (
-      <>
-        <CardDetail data={cities} />
-        <div className='containerItineraries'>
-          { itineraries ? (
-              itineraries.map((data)=><CardItinerary 
-                key={data._id}
-                nombre={data.name} 
-                foto={data.urlimg} 
-                precio={data.price} 
-                duracion={data.duration} 
-                likes={data.likes}
-                hashtags={data.hashtags}
-                comentarios={data.comments}
-              />)
-            ) : (
-              <h3 className='noResults' style={{ marginTop: '250px', marginLeft:'820px' }}>There are not itineraries</h3>
-            )
-          }
-          <li><a href="/cities" style={{ marginLeft:'930px', color: 'indigo' }}>Back to cities</a></li>
-        </div>
-      </>
-    )
-  }
-  
-  export default CityDetail
+    axios.get(`${API_URL}/${id}`)
+      .then((response) => {
+        dispatch(getCitiesAction.getCity(id));
+      })
+      .catch((error) => {
+        console.error('Error fetching city data:', error);
+      });
+
+    // Obtener itinerarios
+
+    dispatch(getItinerariesAction.get_itinerary(id));
+  }, [dispatch]);
+
+  return (
+    <> 
+     <CardDetail data={cities} />
+      <div className="containerItineraries d-flex justify-content-center" style={{ marginTop: '50px', marginLeft: '120px' }}>
+        {console.log(itineraries)}
+        {itineraries ? (
+          itineraries.map((itinerary, index) => (
+            <CardItinerary key={index} itinerary={itinerary} />
+          ))
+        ) : (
+          <h3 className="noResults" style={{ marginTop: '250px', marginLeft: '820px' }}>
+            There are no itineraries <li><a href="/cities" style={{ marginLeft:'930px', color: 'indigo' }}>Back to cities</a></li>
+          </h3>
+          
+        )}
+        
+      </div>
+    </>
+  );
+}
+
+export default CityDetail;

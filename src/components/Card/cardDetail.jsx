@@ -1,19 +1,15 @@
 import React from 'react'
 
-function index({data}) {
+function CardDetail({cityImage, cityName, CityDesc}) {
+
   return (
-    <>
-        <div className='containerDetailsPage'>
-            <img className='img__detailsPage' src={data?.portada} alt="" />{/*Hay que agregar los signos de pregunta porque carga tan rapido que componente que no se alcanza a actualizar por eso hay que preguntarle si por medio del operardor ? si tiene el dato*/}
-            <div className='centerContentDetailsPage'>
-                <div className='containerDetailsPage__text'>
-                    <h2>{data?.nombre}</h2>{/*Acá también*/}
-                    <h3>{data?.datos}</h3>{/*Acá también*/}
-                </div>
-            </div>
-        </div>
-    </>
+    <div className="flex flex-col mx-auto  mt-28 space-y-2 items-center ">
+    <img  className="aspect-square w-1/2 rounded-2xl" src={cityImage} />
+    <h2 className="font-bold text-fuchsia-700">{cityName} </h2>
+    <p>{CityDesc}</p>
+   
+</div>
   )
 }
 
-export default index
+export default CardDetail

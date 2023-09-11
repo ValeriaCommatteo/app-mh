@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap'
-// import Button from 'react-bootstrap/Button';
 import { Link as Anchor } from 'react-router-dom';
 
 function CardComponent({ src, city, country, id }) {
