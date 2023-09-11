@@ -48,10 +48,10 @@ function CityDetail() {
                 comentarios={data.comments}
               />)
             ) : (
-              <h3 className='noResults'>There are not itineraries</h3>
+              <h3 className='noResults' style={{ marginTop: '250px', marginLeft:'820px' }}>There are not itineraries</h3>
             )
           }
-          <Link to="/cities" className='return__btn'>Back to cities</Link>
+          <li><a href="/cities" style={{ marginLeft:'930px', color: 'indigo' }}>Back to cities</a></li>
         </div>
       </>
     )
