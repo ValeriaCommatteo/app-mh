@@ -7,9 +7,9 @@ const CardItinerary = ({ itinerary }) => {
     return (
         <>
          <Container fluid style={{ marginLeft:'100px', marginRight:'100px' }}>
-            <div className="plan">
+            <div className="container container-fluid plan">
                 <div className="inner">
-                    <span className=" pricing">
+                    <span className="pricing">
                         <span>{[...new Array(5)].map((money, index) => {
                             const isAffordable = index < itinerary.price;
 

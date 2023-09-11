@@ -2,11 +2,10 @@
   border-radius: 16px;
   box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
   padding: 10px;
-  background-color: #08070783;
+  background-color: #08070783 !important;
   color: #699191;
-  
-  width: 600px;
-  height: 620px;
+  width: 500px;
+  height: 730px;
 }
 
 .image {
