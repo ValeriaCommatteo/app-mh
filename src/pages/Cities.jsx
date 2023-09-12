@@ -61,7 +61,7 @@ function Cities() {
             )
             .map((data) => (
               <Col style={{ padding: '5px' }} key={data._id} md={3}>
-                <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data._id} />
+                <CardComponent src={data.urlimage} city={data.city} country={data.country} id={data._id}/>
               </Col>
             ))
         ) : (
