@@ -4,7 +4,6 @@ import axios from 'axios';
 import getCitiesAction from '../redux/actions/citiesActions';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import CardComponent from '../components/Card/index';
-import './Style/citiesStyle.css';
 
 const API_URL = 'http://localhost:4000/api/cities';
 
