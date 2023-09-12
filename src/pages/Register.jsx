@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { register } from '../redux/actions/userActions';
-import './Style/signIn.css';
+import './Style/register.css';
 
 const Register = () => {
 
@@ -43,50 +43,45 @@ const Register = () => {
   };
 
   return (
-    <section class="container">
-      <form class="form" onSubmit={handleSubmit}>
-        <div class="input-box">
-          <label>
-            {""} Name
-            <input required="" placeholder="Enter name" type="text" ref={name} /></label>
+    <form class="register" onSubmit={handleSubmit}>
+      <p class="title-reg">Register </p>
+      <p class="message-reg">Signup now and get full access to our app.</p>
+      <div class="name-surname">
+        <label>
+        {""} Name
+          <input required="" placeholder="" type="text" class="input" ref={name} />
+        </label>
+        <label>
+        {""} Surname
+          <input required="" placeholder="" type="text" class="input" ref={surname} />
+        </label>
+      </div>
+      <label>
+      {""} Photo
+        <input required="" placeholder="" type="url" class="input" ref={photo} />
+      </label>
+      <label>
+      {""} Email
+        <input required="" placeholder="" type="email" class="input" ref={email} />
+      </label>
+      <label>
+      {""} Password
+        <input required="" placeholder="" type="password" class="input" ref={password} />
+      </label>
+      <div className="column">
+        <div className="select-box">
+        <select>
+        {countries.length > 0 && countries.map((country) => (<option key={`opt-country-${country}`} value={country}>
+              {""}
+             {""} {country}</option>
+              ))}
+          </select>
         </div>
-        <div class="column">
-          <div class="input-box">
-            <label>{""} Surname
-              <input required="" placeholder="Enter surnema" type="text" /></label>
-          </div>
-          <div class="input-box">
-            <label>{""} Photo
-              <input required="" placeholder="Enter your photo" type="url" /></label>
-          </div>
-        </div>
-        <div class="gender-box">
-          <label>{""} Email
-            <input required="" placeholder="Enter your email" type="text" /></label>
-        </div>
-        <div class="gender-box">
-          <label>{""} Password
-            <input required="" placeholder="Enter your password" type="text" /></label>
-        </div>
-        <div class="input-box address">
-          <label>{""} Country</label>
-          <input required="" placeholder="Enter street address" type="text" />
-          <div class="column">
-            <div class="select-box">
-              <select name="country" ref={country}>
-                {countries.length > 0 && countries.map((country) => (<option key={`opt-country-${country}`} value={country}>
-                  {""}
-                  {country} {""}
-                </option>
-                ))}
-              </select>
-            </div>
-            <input required="" placeholder="Enter your city" type="text" />
-          </div>
-        </div>
-        <button>Submit</button>
-      </form>
-    </section>
+            <button className="submit">Submit</button>
+            <p className="signin">Already have an acount ? <a rel="noopener noreferrer" href="#" className="" >Sign up</a>
+        </p>
+      </div>
+    </form>
   );
 }
 

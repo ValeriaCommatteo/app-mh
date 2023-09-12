@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from '../../redux/actions/userActions';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import './style.css'
 
 const NavbarMain = () => {
@@ -30,7 +27,7 @@ const NavbarMain = () => {
             </div>
           ) : (
             <><div className="col-auto">
-              <Link to="/signup" className="btn btn-outline-light" style={{ backgroundColor: '#210062' }}>Register</Link>
+              <Link to="/register" className="btn btn-outline-light" style={{ backgroundColor: '#210062' }}>Register</Link>
               <Link to="/signin" className="btn btn-outline-light" style={{ backgroundColor: '#210062' }}>Sign In</Link>
             </div>
             </>
