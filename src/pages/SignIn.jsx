@@ -37,7 +37,7 @@ const SignIn = () => {
   return (
     <>
       <div className="form-container" style={{ marginTop:'200px', marginLeft:'800px'}}>
-        <p className="title">Login</p>
+        <p className="title-log">Login</p>
         <form className="form">
           <div className="input-group">
             <label> {" "}Email</label>

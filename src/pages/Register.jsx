@@ -43,46 +43,49 @@ const Register = () => {
   };
 
   return (
-    <form class="register" onSubmit={handleSubmit}>
-      <p class="title-reg">Register </p>
-      <p class="message-reg">Signup now and get full access to our app.</p>
-      <div class="name-surname">
-        <label>
-        {""} Name
-          <input required="" placeholder="" type="text" class="input" ref={name} />
+    <div className="d-flex col-10 justify-center items-center">
+      <form
+        className="d-flex flex-column justify-center items-start gap-5 bg-gray-200 p-5"
+        onSubmit={handleSubmit}
+      >
+        <label className="border">
+          {" "}
+          Name
+          <input type="text" name="name" ref={name} required />
         </label>
         <label>
-        {""} Surname
-          <input required="" placeholder="" type="text" class="input" ref={surname} />
+          {" "}
+          email
+          <input type="email" name="email" ref={email} />
         </label>
-      </div>
-      <label>
-      {""} Photo
-        <input required="" placeholder="" type="url" class="input" ref={photo} />
-      </label>
-      <label>
-      {""} Email
-        <input required="" placeholder="" type="email" class="input" ref={email} />
-      </label>
-      <label>
-      {""} Password
-        <input required="" placeholder="" type="password" class="input" ref={password} />
-      </label>
-      <div className="column">
-        <div className="select-box">
-        <select>
-        {countries.length > 0 && countries.map((country) => (<option key={`opt-country-${country}`} value={country}>
-              {""}
-             {""} {country}</option>
+        <label>
+          {" "}
+          password
+          <input type="password" name="password" ref={password} />
+        </label>
+        <label>
+          {" "}
+          Image
+          <input type="text" name="image" ref={photo} />
+        </label>
+        <label>
+          {" "}
+          country
+          <select name="country" ref={country}>
+            {countries.length > 0 &&
+              countries.map((country) => (
+                <option key={`opt-country-${country}`} value={country}>
+                  {" "}
+                  {country}{" "}
+                </option>
               ))}
           </select>
-        </div>
-            <button className="submit">Submit</button>
-            <p className="signin">Already have an acount ? <a rel="noopener noreferrer" href="#" className="" >Sign up</a>
-        </p>
-      </div>
-    </form>
+        </label>
+        <button className="btn btn-secondary">Register</button>
+      </form>
+    </div>
   );
-}
+};
+
 
 export default Register;
