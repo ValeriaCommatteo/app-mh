@@ -83,3 +83,7 @@ li a:hover {
     padding-left: 0;
     margin-right: 20px;
 }
+
+button:hover {
+    background: rgb(115, 69, 250);
+  }

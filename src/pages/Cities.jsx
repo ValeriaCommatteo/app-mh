@@ -50,7 +50,7 @@ function Cities() {
           </Col>
         </Row>
       </Form>
-      <Row style={{ width: '1350px' }}>
+      <Row>
         <font size='6' color="indigo">Cities</font>
         <h4>Collection of the most beautiful places and experiences</h4>
         {cities.length > 0 ? (

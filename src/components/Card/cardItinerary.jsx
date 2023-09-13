@@ -6,9 +6,9 @@ import './cardStyle.css'
 const CardItinerary = ({ itinerary }) => {
     return (
         <>
-         <Container fluid style={{ marginLeft:'100px', marginRight:'100px' }}>
-            <div className="container container-fluid plan">
-                <div className="inner">
+         <Container fluid>
+            <div className="container plan" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div className="inner" style={{ height: '680px', width:'450px' }}>
                     <span className="pricing">
                         <span>{[...new Array(5)].map((money, index) => {
                             const isAffordable = index < itinerary.price;
@@ -26,7 +26,7 @@ const CardItinerary = ({ itinerary }) => {
                         })} </span>
                     </span>
                     <div className="d-flex justify-content-center">
-                    <Card.Img variant="top"  src={itinerary.userImg} style={{ height: '350px', width: '350px', objectFit: 'cover' }} />
+                    <Card.Img variant="top" className="img-fluid" src={itinerary.userImg} style={{ maxWidth: '350px', maxHeight:'350px', objectFit: 'cover' }}/>
                     </div>
                     <p className="title">{itinerary.name}</p>
                     <p className="info">{itinerary.activities}</p>
@@ -66,8 +66,8 @@ const CardItinerary = ({ itinerary }) => {
                              <span><strong>{itinerary.hashtags}</strong></span>
                         </li>
                     </ul>
-                    <div className="action">
-                        <li><a href="/cities" className="button">Back to cities</a></li>
+                    <div className="action text-center mt-auto" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end'}}>
+                        <li style={{ textAlign: 'center', marginTop:'15px' }}><a href="/cities" className="button">View More</a></li>
                     </div>
                     </div>
             </div>
