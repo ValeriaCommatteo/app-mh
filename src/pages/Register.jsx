@@ -52,20 +52,20 @@ const Register = () => {
     };
   }
 
-  // const registerWithGoogle = ( credentialResponse ) => {
+  const registerWithGoogle = ( credentialResponse ) => {
     
-  //   const dataUser = decode (credentialResponse.credential);
+    const dataUser = decode (credentialResponse.credential);
 
-  //   const body = {
-  //     name: dataUser.name,
-  //     surname: dataUser.surname,
-  //     photo: dataUser.photo,
-  //     email: dataUser.email,
-  //     password: dataUser.name + dataUser.sub,
-  //   };
+    const body = {
+      name: dataUser.name,
+      surname: dataUser.surname,
+      photo: dataUser.photo,
+      email: dataUser.email,
+      password: dataUser.name + dataUser.sub,
+    };
 
-  //   dispatch(userActions.register(body));
-  // };
+    dispatch(userActions.register(body));
+  };
 
   return (
 
@@ -109,7 +109,7 @@ const Register = () => {
           </div>
         </div>
         <button>Register</button>
-        {/* <GoogleLogin onSuccess={ registerWithGoogle } onError={() => { console.log('Login Failed') }}/> */}
+        <GoogleLogin onSuccess={ registerWithGoogle } onError={() => { console.log('Login Failed') }}/>
       </form>
       </div>
     </div>
