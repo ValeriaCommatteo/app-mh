@@ -38,15 +38,15 @@ const NavbarMain = () => {
             <Nav.Link href="/cities">Cities</Nav.Link>
               
             <NavDropdown title={title}>
-              {console.log('entra user._id')}
-              {console.log(user._id)}
             {user._id ? (
-
-
+              
+              
+              
               <NavDropdown.Item className="btn btn-outline-light login" onClick={handleSignOut}>{" "}Log out {" "}</NavDropdown.Item>
-             
+              
               ) : (
                 <>
+                {console.log(user._id)}
 
              <NavDropdown.Item href="/register">Register</NavDropdown.Item>
             <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
