@@ -1,9 +1,18 @@
 import React from 'react'
 import NavbarMain from "../components/Nav/Nav";
 import Footer from '../components/Footer/index'
-import { Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const layout = ( ) => {
+function layout  ( )  {
+
+  let token = localStorage.getItem('token')
+
+  if(!token){
+
+    return <Navigate to={'/signin'}/>
+  }
+
+
   return (
     <div  className="flex flex-col min-h-screen">
         <NavbarMain />
