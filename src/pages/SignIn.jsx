@@ -2,15 +2,15 @@ import React from 'react';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '../redux/actions/userActions';
+import userActions from '../redux/actions/userActions';
 import { GoogleLogin } from '@react-oauth/google';
 import decode from "jwt-decode";
 import './Style/signIn.css';
 
 const SignIn = () => {
 
-  const email = useRef(null);
-  const password = useRef(null);
+  const email = useRef();
+  const password = useRef();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,29 +21,29 @@ const SignIn = () => {
 
     const aux = [email, password];
 
-    if (aux.some((campo) => !campo.current.value)) {
-      alert("Old the CAMPOS are required")
+    if (aux.some((field) => !field.current.value)) {
+      alert("Old the field are required")
     } else {
       const body = {
         email: email.current.value,
         password: password.current.value
       };
-      dispatch(signIn(body)).then((response) => {
-        if (response.payload.success) {
+      dispatch(userActions.signIn(body)).then((response) => {
+        if (response.payload.user) {
           navigate("/");
         }
       });
     };
   }
 
-  const signInWithGoogle = (CredentialResponse) => {
-    const dataUser = decode(CredentialResponse.credential)
+  const signInWithGoogle = (credentialResponse) => {
+    const dataUser = decode(credentialResponse.credential)
     const body = {
       email: dataUser.email,
       password: dataUser.name + dataUser.sub,
     }
-    dispatch(signIn(body)).then((actionResponse) => {
-      if (respuestaDelAction.payload.success) {
+    dispatch(userActions.signIn(body)).then((actionResponse) => {
+      if (actionResponse.payload.user) {
         navigate("/");
       }
     });

@@ -1,18 +1,10 @@
-import ReactiveButton from 'reactive-button';
-import Nav from 'react-bootstrap/Nav';
-import ToggleButton from 'react-bootstrap/ToggleButton';
+import React from 'react';
+import { Link as Anchor } from 'react-router-dom';
 
 function ActionButton({ toTop }) {
 
     return (
-        <>
-            <Nav.Link to="/cities" className="call-to-action">
-                <div className="col-auto">
-                    <button className="btn btn-outline-light login" style={{ backgroundColor: '#210062' }}>View More</button>
-                </div>
-                <div className="click-here" onClick={toTop} />
-            </Nav.Link>
-        </>
+            <Anchor to='/cities' className="btn btn-outline-light login" style={{ backgroundColor: '#210062' }}>Back to the cities</Anchor>
     );
 }
 

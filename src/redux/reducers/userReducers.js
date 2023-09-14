@@ -1,47 +1,66 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { loadUser, register, signIn, authenticate, logout } from "../actions/userActions";
+import userActions from "../actions/userActions";
 
 
 const initialState = {
-    user: null,
-    token : null
-}
+    token: null,
+    user: {
+      email: "",
+      _id: "",
+    }
+  };
 
-export const userR = createReducer(initialState, (builder) => 
-        builder 
+const userR = createReducer(initialState, (builder) => {
+      return  builder 
 
-        .addCase( loadUser, ( stateActual, action) => {
+      .addCase(userActions.loadUser, ( stateActual, action ) => {
+        console.log('entra loadUser')
+        return {
+            ...stateActual,
+            user : action.payload
+         }
+        } )
+
+        .addCase(userActions.register.fulfilled, ( stateActual, action ) => {
+          console.log('entra register')
+            console.log('entra?')
             return {
                 ...stateActual,
-                user : action.payload
-             }
-        } )
-        .addCase( register.fulfilled, ( stateActual, action ) => {
-            return {
-                ...stateActual,
-                user : action.payload.user,
-                token : action.payload.token
+                user: action.payload.user
             }
         } )
-        .addCase(signIn.fulfilled, (stateActual, action) => {
-            return {
-                ...stateActual,
-                user : action.payload.user,
-                token : action.payload.token
-            }
-        }  )
-        .addCase(authenticate.fulfilled, (stateActual, action) => {
-            return {
-                ...stateActual,
-                user : action.payload.user,
-                token : action.payload.token
-            }
+        // .addCase(userActions.register.fulfilled, ( stateActual, action ) => {
+        //     console.log('entra?')
+           
+        //     let userData = {
+        //         user : action.payload.user || null,
+        //         token : action.payload.token || null
+        //     }
+        //     return {
+        //         ...stateActual,
+        //         ...userData
+        //     }
+        // } )
+        .addCase(userActions.signIn, (stateActual, action) => {
+          console.log('entra signIn')
+            return { 
+                user: action.payload.user,
+                token: action.payload.token,
+        }
+      })
+        .addCase(userActions.authenticate.fulfilled, (stateActual, action) => {
+          console.log('entra authenticate')
+          console.log(action.payload)
+            return { 
+                user: action.payload.user, 
+                token: action.payload.token,
+      };
+    })
+        .addCase(userActions.logout, (stateActual, action) => {
+          console.log('entra logout')
+            console.log(initialState)
+            return initialState
         } )
-        .addCase( logout, (stateActual, action) => {
-            return  {
-                ...stateActual,
-                user : null,
-                token : null
-            }
-        } )
-)
+    })
+
+    export default userR;

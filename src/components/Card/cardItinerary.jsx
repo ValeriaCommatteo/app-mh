@@ -67,7 +67,7 @@ const CardItinerary = ({ itinerary }) => {
                         </li>
                     </ul>
                     <div className="action text-center mt-auto" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end'}}>
-                        <li style={{ textAlign: 'center', marginTop:'15px' }}><a href="/cities" className="button">View More</a></li>
+                        <li style={{ textAlign: 'center', marginTop:'15px' }}><a href="/itinerary" className="button">View More</a></li>
                     </div>
                     </div>
             </div>
