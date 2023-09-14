@@ -19,7 +19,7 @@ export const citiesR = createReducer( initialState, ( builder ) =>
         } )
 
         .addCase( getCitiesAction.get_city, (stateActual, action) => {
-              const newState = {...stateActual, cities: [action.payload.cities]}
+              const newState = {...stateActual, cities: action.payload.cities}
               return newState
         })
 

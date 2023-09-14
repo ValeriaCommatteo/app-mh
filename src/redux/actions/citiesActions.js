@@ -13,14 +13,14 @@ const get_city = createAction('get_city', (data) => {
   }
 })
 
-const getCity = createAsyncThunk( 'get_city_async', async( id ) => {
-  try {
-      const peticion = await axios.get( 'http://localhost:4000/api/cities/city/' + id  )
-      return peticion.data.response
-  } catch (error) {
+// const getCity = createAsyncThunk( 'get_city_async', async( id ) => {
+//   try {
+//       const peticion = await axios.get( 'http://localhost:4000/api/cities/city/' + id  )
+//       return peticion.data.response
+//   } catch (error) {
       
-  }
-})
+//   }
+// })
 
 const filterCities = createAction('filterCities', (inputValue) => {
   return {
@@ -28,6 +28,7 @@ const filterCities = createAction('filterCities', (inputValue) => {
   }
 });
 
-const getCitiesAction = { get_cities, get_city, getCity, filterCities }
+const getCitiesAction = { get_cities, get_city, filterCities }
+// const getCitiesAction = { get_cities, get_city, getCity, filterCities }
 
 export default getCitiesAction

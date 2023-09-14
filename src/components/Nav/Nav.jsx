@@ -1,41 +1,65 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { PiUserListDuotone } from "react-icons/pi";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from '../../redux/actions/userActions';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import userActions from "../../redux/actions/userActions";
 import './style.css'
+import { useNavigate } from "react-router-dom";
 
 const NavbarMain = () => {
-  const user = useSelector((store) => store.user.user);
+  const user = useSelector((store) => store.userR.user);
   const dispatch = useDispatch();
 
+  const title =
+  <span>
+    <PiUserListDuotone  className="user" />
+  </span>
+
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    dispatch(userActions.logout());
+    
+    navigate('/signin'); 
+  };
+
   return (
-    <header className="header" role="banner">
-      <div>
-        <div className="ajuste row align-items-center">
-          <div className="col titulo">
-            MyItinerary
-          </div>
-          <div className="col-auto ms-auto">
-            <ul className="list-unstyled d-flex mb-0">
-              <li className="me-3"><a href="/" className="home-link">Home</a></li>
-              <li><a href="/cities">Cities</a></li>
-            </ul>
-          </div>
-          {user ? (
-            <div className="col-auto">
-              <button className="btn btn-outline-light login" style={{ backgroundColor: '#210062' }} onClick={() => dispatch(logout())}>{" "}Login {" "}</button>
-            </div>
-          ) : (
-            <><div className="col-auto">
-              <Link to="/register" className="btn btn-outline-light" style={{ backgroundColor: '#210062' }}>Register</Link>
-              <Link to="/signin" className="btn btn-outline-light" style={{ backgroundColor: '#210062' }}>Sign In</Link>
-            </div>
+    <>
+       <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand >MyItinerary</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/cities">Cities</Nav.Link>
+              
+            <NavDropdown title={title}>
+              {console.log('entra user._id')}
+              {console.log(user._id)}
+            {user._id ? (
+
+
+              <NavDropdown.Item className="btn btn-outline-light login" onClick={handleSignOut}>{" "}Log out {" "}</NavDropdown.Item>
+             
+              ) : (
+                <>
+
+             <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+            <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
+      </>
+      )}
+      {/*  */}
+
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
             </>
-          )}
-          {/*  */}
-        </div>
-      </div>
-    </header>
   );
 }
 

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authenticate } from './redux/actions/userActions';
 import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Cities from './pages/Cities';
 import CityDetail from './pages/CityDetail';
-import Register from './pages/Register';
+import RegistrationForm from './pages/Register';
 import SignIn from "./pages/SignIn";
+import Itinerary from './pages/Itinerary';
+import userActions from "./redux/actions/userActions" 
 import './App.css'
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register />
+        element: <RegistrationForm />
       },
       {
         path: "/signin",
@@ -35,14 +36,10 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <CityDetail />
       },
-      // {
-      //   path: "/itinerary",
-      //   element: <Itineraries />
-      // },
-      // {
-      //   path: "/itineraryByCity/:id",
-      //   element: <CityDetail />
-      // },
+      {
+        path: "/itinerary",
+        element: <Itinerary />
+      },
     ],
   },
 ]);
@@ -54,7 +51,7 @@ function App() {
   useEffect (() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch(authenticate());
+      dispatch(userActions.authenticate());
     }
   }, [])
   

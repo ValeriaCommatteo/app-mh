@@ -15,8 +15,8 @@ export const getAllCities = async () => {
 
 export const getCity = async (id) => {
     try {
-        const { data } = await cities('/api/cities' + id)
-        return data.city
+        const { data } = await cities('/api/cities/city/' + id)
+        return data
     } catch (error) {
         return[]
     }

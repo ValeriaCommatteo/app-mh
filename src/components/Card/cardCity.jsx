@@ -1,14 +1,14 @@
-function CardCity ({ cityImage, cityName, cityDescription }) {
-
+import React from 'react';
+import { Card } from 'react-bootstrap'
+function CardCity ({ data }) {
     return (
-        <div className="card">
-            <div className="card-image"src={cityImage} ></div>
-            <div className="category"> Illustration </div>
-            <div className="heading">{cityName}
-                <div className="author"><span className="name">{cityDescription}</span></div>
-            </div>
-        </div>
-
+        <Card className='text-center'>
+        <Card.Img variant="top" src={data?.urlimage} style={{ height: '200px', width: '100%', objectFit: 'cover' }}/>
+        <Card.Body>
+          <Card.Title>{data?.city}</Card.Title>
+          <Card.Text>{data?.country}</Card.Text>
+        </Card.Body>
+      </Card>
     )
 }
 

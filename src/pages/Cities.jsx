@@ -4,6 +4,7 @@ import axios from 'axios';
 import getCitiesAction from '../redux/actions/citiesActions';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import CardComponent from '../components/Card/index';
+// import './Style/citiesStyle.css'
 
 const API_URL = 'http://localhost:4000/api/cities';
 
@@ -30,29 +31,25 @@ function Cities() {
   };
 
   return (
-    <Container fluid className="d-flex flex-column justify-content-center align-items-center">
-      <Form className="d-flex justify-content-center align-items-center" style={{ marginTop: '50px' }}>
+    // <Container fluid className="d-flex flex-column justify-content-center align-items-center">
+    <Container style={{ marginTop: '30px' }} >
+      <div className="text-center">
+      <h3 color="indigo" >Cities</h3>
+      <h4>Collection of the most beautiful places and experiences</h4>
+      </div>
+      <Form className="d-flex justify-content-center align-items-center" style={{ marginTop: '20px', marginBottom:'20px' }}>
         <Row>
           <Col xs="auto">
-            <input
-              type="text"
-              className="form-control"
-              name=""
-              id=""
-              aria-describedby="helpId"
-              placeholder="Search the city"
-              onChange={handleInputChange}
-              ref={inputSearch}
-            />
+            <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="Search the city" onChange={handleInputChange} ref={inputSearch} />
           </Col>
           <Col xs="auto">
             <Button className="btn btn-outline-light submit mx-4" style={{ backgroundColor: '#210062' }}>Submit</Button>
           </Col>
         </Row>
       </Form>
-      <Row style={{ width: '1350px' }}>
-        <font size='6' color="indigo">Cities</font>
-        <h4>Collection of the most beautiful places and experiences</h4>
+      <Row xs={1} md={2} className="g-4">
+        {/* <font size='6' color="indigo">Cities</font>
+        <h4>Collection of the most beautiful places and experiences</h4> */}
         {cities.length > 0 ? (
           cities
             .filter((cityData) =>
