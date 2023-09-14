@@ -11,7 +11,7 @@ function Section({ title, txt }) {
       <MDBCardOverlay>
         <MDBCardTitle>{title}</MDBCardTitle>
         <MDBCardText>{txt}</MDBCardText>
-        <ActionButton />
+        <ActionButton toTop={true} buttonText="View More" />
       </MDBCardOverlay>
     </MDBCard>
   );

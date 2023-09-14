@@ -16,7 +16,7 @@ function Itinerary() {
                At the moment this section is under construction, come back later. Know how to apologize for the inconvenience.
               </Card.Text>
             </Card.Body>
-            <ActionButton />
+            <ActionButton toTop={true} buttonText="Back to the Cities" />
           </Card>
     </Row>
   );
